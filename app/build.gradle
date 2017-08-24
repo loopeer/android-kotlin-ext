@@ -1,19 +1,16 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
-android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+android {compileSdkVersion configs.compileSdkVersion
+    buildToolsVersion configs.buildToolsVersion
+
     defaultConfig {
         applicationId "com.loopeer.example.androidkotlinext"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode configs.versionCode
+        versionName configs.versionName
     }
     buildTypes {
         release {
@@ -26,9 +23,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.0'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+
+    implementation deps.appcompatV7
+    implementation deps.constraintLayout
+    implementation project(':androidext')
 }
