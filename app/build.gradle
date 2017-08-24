@@ -22,8 +22,7 @@ android {compileSdkVersion configs.compileSdkVersion
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
+    implementation deps.kotlinStdlib
     implementation deps.appcompatV7
     implementation deps.constraintLayout
     implementation project(':androidext')

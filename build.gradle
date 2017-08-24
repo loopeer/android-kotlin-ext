@@ -45,13 +45,14 @@ ext {
     constraintVersion = '1.0.2'
 
     deps = [
-            supportCompat  : "com.android.support:support-compat:$supportLibraryVersion",
-            supportCoreUi  : "com.android.support:support-core-ui:$supportLibraryVersion",
-            supportFragment: "com.android.support:support-fragment:$supportLibraryVersion",
-            appcompatV7    : "com.android.support:appcompat-v7:$supportLibraryVersion",
-            recyclerView   : "com.android.support:recyclerview-v7:$supportLibraryVersion",
-            design         : "com.android.support:design:$supportLibraryVersion",
-            constraintLayout  : "com.android.support.constraint:constraint-layout:$constraintVersion",
-            gridlayoutV7   : "com.android.support:gridlayout-v7:$supportLibraryVersion"
+            supportCompat   : "com.android.support:support-compat:$supportLibraryVersion",
+            supportCoreUi   : "com.android.support:support-core-ui:$supportLibraryVersion",
+            supportFragment : "com.android.support:support-fragment:$supportLibraryVersion",
+            appcompatV7     : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            recyclerView    : "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            design          : "com.android.support:design:$supportLibraryVersion",
+            constraintLayout: "com.android.support.constraint:constraint-layout:$constraintVersion",
+            kotlinStdlib    : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            gridlayoutV7    : "com.android.support:gridlayout-v7:$supportLibraryVersion"
     ]
 }
