@@ -1,59 +1,112 @@
+@file:Suppress("unused")
+
 package com.loopeer.androidext
 
+import android.app.Dialog
 import android.content.Context
 import android.preference.PreferenceManager
+import android.support.v4.app.Fragment
 
-fun storeInt(context: Context, intValue: Int, tag: String) {
-    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+fun Context.storeInt(intValue: Int, tag: String) {
+    val sp = PreferenceManager.getDefaultSharedPreferences(this)
     sp.edit().putInt(tag, intValue).apply()
 }
 
-fun getInt(context: Context, tag: String, default: Int = 0): Int {
-    return PreferenceManager.getDefaultSharedPreferences(context).getInt(tag, default)
+fun Context.getInt(tag: String, default: Int = 0): Int {
+    return PreferenceManager.getDefaultSharedPreferences(this).getInt(tag, default)
 }
 
-fun storeBool(context: Context, boolValue: Boolean, tag: String) {
-    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+fun Context.storeBool(boolValue: Boolean, tag: String) {
+    val sp = PreferenceManager.getDefaultSharedPreferences(this)
     sp.edit().putBoolean(tag, boolValue).apply()
 }
 
-fun getBool(context: Context, tag: String, default: Boolean = false): Boolean {
-    return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(tag, default)
+fun Context.getBool(tag: String, default: Boolean = false): Boolean {
+    return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(tag, default)
 }
 
-fun storeString(context: Context, string: String?, tag: String) {
-    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+fun Context.storeString(string: String?, tag: String) {
+    val sp = PreferenceManager.getDefaultSharedPreferences(this)
     sp.edit().putString(tag, string).apply()
 }
 
-fun getString(context: Context, tag: String): String? {
-    return PreferenceManager.getDefaultSharedPreferences(context).getString(tag, null)
+fun Context.getString(tag: String, default: String? = null): String? {
+    return PreferenceManager.getDefaultSharedPreferences(this).getString(tag, default)
 }
 
-fun storeLong(context: Context, longValue: Long, tag: String) {
-    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+fun Context.storeLong(longValue: Long, tag: String) {
+    val sp = PreferenceManager.getDefaultSharedPreferences(this)
     sp.edit().putLong(tag, longValue).apply()
 }
 
-fun getLong(context: Context, tag: String, default: Long = 0L): Long {
-    return PreferenceManager.getDefaultSharedPreferences(context).getLong(tag, default)
+fun Context.getLong(tag: String, default: Long = 0L): Long {
+    return PreferenceManager.getDefaultSharedPreferences(this).getLong(tag, default)
 }
 
-fun storeFloat(context: Context, floatValue: Float, tag: String) {
-    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+fun Context.storeFloat(floatValue: Float, tag: String) {
+    val sp = PreferenceManager.getDefaultSharedPreferences(this)
     sp.edit().putFloat(tag, floatValue).apply()
 }
 
-fun getFloat(context: Context, tag: String, default: Float = 0f): Float {
-    return PreferenceManager.getDefaultSharedPreferences(context).getFloat(tag, default)
+fun Context.getFloat(tag: String, default: Float = 0F): Float {
+    return PreferenceManager.getDefaultSharedPreferences(this).getFloat(tag, default)
 }
 
-fun storeStrSet(context: Context, strSet: Set<String?>?, tag: String) {
-    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+fun Context.storeStringSet(strSet: Set<String?>?, tag: String) {
+    val sp = PreferenceManager.getDefaultSharedPreferences(this)
     sp.edit().putStringSet(tag, strSet).apply()
 }
 
-fun getStrSet(context: Context, tag: String): Set<String?>? {
-    return PreferenceManager.getDefaultSharedPreferences(context).getStringSet(tag, null)
+fun Context.getStringSet(tag: String): Set<String?>? {
+    return PreferenceManager.getDefaultSharedPreferences(this).getStringSet(tag, null)
 }
 
+//fragment
+fun Fragment.storeInt(intValue: Int, tag: String) = this.context.storeInt(intValue, tag)
+
+fun Fragment.getInt(tag: String, default: Int = 0): Int = this.context.getInt(tag, default)
+
+fun Fragment.storeBool(boolValue: Boolean, tag: String) = this.context.storeBool(boolValue, tag)
+
+fun Fragment.getBool(tag: String, default: Boolean = false) = this.context.getBool(tag, default)
+
+fun Fragment.storeString(string: String?, tag: String) = this.context.storeString(string, tag)
+
+fun Fragment.getString(tag: String, default: String? = null) = this.context.getString(tag, default)
+
+fun Fragment.storeLong(longValue: Long, tag: String) = this.context.storeLong(longValue, tag)
+
+fun Fragment.getLong(tag: String, default: Long = 0L) = this.context.getLong(tag, default)
+
+fun Fragment.storeFloat(floatValue: Float, tag: String) = this.context.storeFloat(floatValue, tag)
+
+fun Fragment.getFloat(tag: String, default: Float = 0F) = this.context.getFloat(tag, default)
+
+fun Fragment.storeStringSet(strSet: Set<String?>?, tag: String) = this.context.storeStringSet(strSet, tag)
+
+fun Fragment.getStringSet(tag: String): Set<String?>? = this.context.getStringSet(tag)
+
+//dialog
+fun Dialog.storeInt(intValue: Int, tag: String) = this.context.storeInt(intValue, tag)
+
+fun Dialog.getInt(tag: String, default: Int = 0): Int = this.context.getInt(tag, default)
+
+fun Dialog.storeBool(boolValue: Boolean, tag: String) = this.context.storeBool(boolValue, tag)
+
+fun Dialog.getBool(tag: String, default: Boolean = false) = this.context.getBool(tag, default)
+
+fun Dialog.storeString(string: String?, tag: String) = this.context.storeString(string, tag)
+
+fun Dialog.getString(tag: String, default: String? = null) = this.context.getString(tag, default)
+
+fun Dialog.storeLong(longValue: Long, tag: String) = this.context.storeLong(longValue, tag)
+
+fun Dialog.getLong(tag: String, default: Long = 0L) = this.context.getLong(tag, default)
+
+fun Dialog.storeFloat(floatValue: Float, tag: String) = this.context.storeFloat(floatValue, tag)
+
+fun Dialog.getFloat(tag: String, default: Float = 0F) = this.context.getFloat(tag, default)
+
+fun Dialog.storeStringSet(strSet: Set<String?>?, tag: String) = this.context.storeStringSet(strSet, tag)
+
+fun Dialog.getStringSet(tag: String): Set<String?>? = this.context.getStringSet(tag)
