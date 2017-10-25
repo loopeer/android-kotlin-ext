@@ -8,7 +8,7 @@ Installation
 
 Add the following dependency to your build.gradle file:
 ```groovy
-  compile 'com.loopeer.lib:androidext:0.0.1'
+  compile 'com.loopeer.lib:androidext:0.0.3'
 ```
 
 License
